@@ -6,17 +6,14 @@
 
 .table{
     display: flex;
+    flex-flow: row wrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .tbody{
-    padding-right: 40px;
+    padding: 8px;
 }
-
 .thead{
-    padding-right: 90px;
-}
-.theadprice{
-    padding-right: 42px;
+    padding: 8px;
 }

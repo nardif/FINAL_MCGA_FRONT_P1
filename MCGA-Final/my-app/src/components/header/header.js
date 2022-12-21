@@ -30,17 +30,17 @@ const Header = () => {
         <div className={styles.navbar_container}>
           <ul className={styles.navbar_items}>
             <li className={styles.nav_buttons}>
-              <NavLink to="/home">Inicio</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/products">Productos</NavLink>
+              <NavLink to="/products">Products</NavLink>
             </li>
             {!user && <li>
               <button onClick={headerCtx.showLoginModal}>Login</button>
             </li>}
             { user && <li>
                 <div>
-                  <button className={styles.button} onClick={onLogout}>Cerrar sesión</button>
+                  <button className={styles.button} onClick={onLogout}>Logout</button>
                 </div>
             </li>
             }

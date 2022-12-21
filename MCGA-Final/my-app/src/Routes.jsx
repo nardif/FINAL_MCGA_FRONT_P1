@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./screens/home";
 import Products from "./screens/products";
-import Login from "./screens/login";
 import Layout from './components/layouts/layouts.js';
 import AuthGuard from './guards/authGuard';
 import HeaderContextProvider from "./context/header-context";

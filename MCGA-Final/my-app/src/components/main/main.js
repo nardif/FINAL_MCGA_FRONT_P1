@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <main className={styles.main}>
       <p className={styles.p_main}>
-        2022 Segundo Cuatri
+        2022 Segundo Cuatrimestre
       </p>
     </main>
   );

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/thunks';
 import { useForm } from "react-hook-form";
@@ -26,7 +26,6 @@ const Login = ({ visible, onHide }) => {    //hace un get del dispatcher
         formState: { errors },
         setError
       } = useForm({
-        // defaultValues: userToLogin || null,
         defaultValues: {
           email: 'arturo@gmail.com',
           password: '1234'
@@ -35,15 +34,12 @@ const Login = ({ visible, onHide }) => {    //hace un get del dispatcher
 
       
       const submitLoggin = async (user) => {
-        try {
-          console.log(user)
-          // setIsLoggin(true);
+        try {      
           setUserToLogin(user)
           await dispatch(login({
               email: user.email,
               password: user.password
           }));
-          // setIsLoggin(false);
           onHide()
           setUserToLogin({});
         } catch(err) {
@@ -79,7 +75,7 @@ const Login = ({ visible, onHide }) => {    //hace un get del dispatcher
                             required={true}
                             errors={errors.password}
                         />
-                        <Button value='login' type='submit'></Button>
+                        <Button value='Login' type='submit'></Button>
                     </form>
                 </Modal>
       </section>

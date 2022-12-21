@@ -6,11 +6,11 @@
     background-color: #202124;
     border-color: #fff132;
     border-radius: 2%;
+    margin: 5px;
   }
   
   .Button:hover{
     background-color: #fff132;
     color: black;
     font-weight: bold;
-    padding: 5px;
   }

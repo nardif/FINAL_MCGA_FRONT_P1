@@ -35,9 +35,10 @@ const Home = () => {
                     <thead>
                         <tr>
                         <th className={styles.thead}>Name</th>
-                        <th className={styles.theadprice}>Price</th>
-                        <th>Stock</th>
-                        <th></th>
+                        <th className={styles.thead}>Price</th>
+                        <th className={styles.thead}>Stock</th>
+                        <th className={styles.thead}></th>
+                        <th className={styles.thead}></th>
                         </tr>
                     </thead>
                     <tbody>

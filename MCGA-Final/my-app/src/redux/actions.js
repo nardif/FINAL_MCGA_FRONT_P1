@@ -169,7 +169,6 @@ export const setUser = (user) => {
 
 const TOKEN_KEY = 'TOKEN_KEY';
 export const setToken = (token) => {
-  console.log({ token })
   localStorage.setItem(TOKEN_KEY, token);
   return {
     type: SET_TOKEN,

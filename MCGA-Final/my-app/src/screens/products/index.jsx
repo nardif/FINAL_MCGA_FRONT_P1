@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, deleteProduct, createProduct, updateProduct } from '../../redux/thunks';
 import { cleanError } from '../../redux/actions';
@@ -20,9 +19,7 @@ const Products = () => {    //hace un get del dispatcher
     //modal
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
-    const [isDeleting, setIsDeleting] = useState(false);
     const [productToEdit, setProductToEdit] = useState();
-
 
     const {
         register, //Hook para tomar los inputs del form
@@ -34,8 +31,8 @@ const Products = () => {    //hace un get del dispatcher
 
       //AGREAGAR
       const onSubmit = (data) => {
-        console.log(data);
         dispatch(createProduct(data));
+        setIsAdding(false);
       };
 
       //UPDATE
@@ -45,7 +42,6 @@ const Products = () => {    //hace un get del dispatcher
       };
 
       const submitEdit = (product) => {
-        console.log(product)
         dispatch(updateProduct(productToEdit._id, {
             name: product.name,
             stock: product.stock,
@@ -56,7 +52,6 @@ const Products = () => {    //hace un get del dispatcher
       }
       //DELETE
       const handleDeleteProduct = (id) => {
-        console.log(id);
        dispatch(deleteProduct(id));
         
       };
@@ -76,24 +71,22 @@ const Products = () => {    //hace un get del dispatcher
     if (isLoading) {
         return <p>Loading... </p>
     }
-  
     
     return (
       <section className={styles.body}>
-        
             <table className={styles.table}>
                     <thead>
                         <tr>
                         <th className={styles.thead}>Name</th>
-                        <th className={styles.theadprice}>Price</th>
-                        <th>Stock</th>
-                        <th></th>
+                        <th className={styles.thead}>Price</th>
+                        <th className={styles.thead}>Stock</th>
+                        <th className={styles.thead}></th>
                         </tr>
                     </thead>
                     <tbody>
                         {products.map((product) => {return (
                             <tr key={product._id}>
-                            <td  className={styles.tbody}>{product.name}</td>
+                            <td className={styles.tbody}>{product.name}</td>
                             <td className={styles.tbody}>$ {product.price}</td>
                             <td className={styles.tbody}>{product.stock}</td>
                             <td >
@@ -178,7 +171,6 @@ const Products = () => {    //hace un get del dispatcher
                             errors={errors.stock} 
                         />
                         <Button value='save' type='submit'></Button>
-
                     </form>
                 </Modal>
       </section>

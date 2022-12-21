@@ -24,7 +24,6 @@ import {
   // define las funciones
 
     export const login = (credentials) => {
-      console.log(credentials);
       return async (dispatch) => {
         dispatch(getLoginPending());
         const options = {
@@ -44,7 +43,6 @@ import {
             return response.json();
           })
           .then((response) => {
-            console.log(response.data);
             dispatch(getLoginSuccess(response.data));
             // seteamos el token y usario
             dispatch(setUser(response.data));
@@ -62,7 +60,6 @@ import {
     return (dispatch, getState) => {
       dispatch(getProductsPending());
       const token = getState().login.token;
-      console.log({ token })
       // request a backend
       return fetch(`${process.env.REACT_APP_API}/products`, {
         headers: {
